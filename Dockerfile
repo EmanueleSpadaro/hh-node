@@ -2,10 +2,14 @@ FROM node:lts-alpine
 
 WORKDIR /app
 
-RUN ["touch", "hardhat.config.js"]
+COPY "./hardhat.config.js" "."
+COPY "./package.json" "."
 
-RUN ["npm", "i", "hardhat"]
+COPY "./express.js" "."
+COPY "./start.js" "."
+
+RUN ["npm", "i"]
 
 EXPOSE 8545
 
-CMD ["npx", "hardhat", "node"]
+CMD ["node", "start.js"]
