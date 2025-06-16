@@ -1,4 +1,8 @@
-This repository contains a Dockerfile that builds a minimal Docker image to run a local Ethereum node using Hardhat.
+This repository contains a Dockerfile that builds a minimal Docker image to run a local Ethereum JSON-RPC node using Hardhat.
+An integrated Express-based proxy intercepts and persists all `eth_sendTransaction` requests, enabling transaction replay after reboot and therefore persist data.
+
+Useful for local blockchain development, testing, and integration in CI environments.
+
 
 ## Build the image
 
