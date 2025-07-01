@@ -42,6 +42,16 @@ function forwardTo(req) {
     });
 }
 
+app.options('/', (req, res) => {
+    res.set({
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+    });
+    res.sendStatus(200);
+});
+
+
 app.post('/', async (req, res) => {
     try {
         if (req.body.method === "eth_sendTransaction") {
